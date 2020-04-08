@@ -59,7 +59,6 @@ def generic_bfs_edges(G, source, neighbors=None, depth_limit=None):
     .. _Depth-limited-search: https://en.wikipedia.org/wiki/Depth-limited_search
     """
     visited = {source}
-     print("Sto vedendo {source}")
     if depth_limit is None:
         depth_limit = len(G)
     queue = deque([(source, depth_limit, neighbors(source))])
@@ -69,7 +68,6 @@ def generic_bfs_edges(G, source, neighbors=None, depth_limit=None):
         try:
             child = next(children)
             if child not in visited:
-                 print("Sto vedendo {child}")
                 yield parent, child
                 visited.add(child)
                 if depth_now > 1:
